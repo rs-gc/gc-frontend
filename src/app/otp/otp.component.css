@@ -1,0 +1,45 @@
+#login-form-div {
+    background: #CCC;
+    border-radius: 5px;
+    min-width: 30%;
+}
+
+#login-data {
+    background: #34751c;
+    color: white;
+    width: auto;
+    padding: 5%;
+    min-width: 10%;
+}
+
+.login-header {
+    padding: 10%;
+    background: #3f51b5;
+    color: white;
+    border-top-right-radius: 5px;
+}
+
+.login-form {
+    width: 100%;
+    padding: 5px;
+    text-align: right;
+}
+
+.mat-form {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 10%
+}
+
+.circular-image {
+    width: auto;
+    height: 200px;
+    margin-top: 10%;
+    border-radius: 10px;
+}
+
+#right-button {
+    float: right;
+    margin-right: 10%;
+    margin-bottom: 5%;
+}

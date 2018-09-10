@@ -1,0 +1,27 @@
+<div class="row">
+  <div *ngFor="let item of items;">
+    <div class="col s12 m3">
+      <div class="inner">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>{{ item.item_name }}</mat-card-title>
+            <mat-card-subtitle>{{ item.product_type }}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{ item.image }}" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <button mat-raised-button color="primary" id="price-button">&#x20B9; {{ item.customer_price }}/{{ item.quantity}}</button>
+            <br><br>
+            <mat-form-field class="example-full-width">
+              <input matInput #postalCode maxlength="2" placeholder="Quantity" value="1">
+              <mat-hint align="end">Quantity</mat-hint>
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-actions>
+              <button mat-raised-button>See Details</button>
+              <button mat-raised-button color="warn" id="add-cart" (click)="addToCart(item.item_uuid)">ADD TO CART</button>
+          </mat-card-actions>
+          </mat-card>
+        </div>
+    </div>
+  </div>
+</div>

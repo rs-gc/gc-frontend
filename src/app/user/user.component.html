@@ -1,0 +1,40 @@
+<div class="row" style="margin-top: 5%;">
+  <div class="col s12 m12">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center">
+      <div class="col s12 m4" id="login-data">
+        <div class="col s12 m6">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center">
+            <h3><strong>
+              Get instant access to <br>
+              your groceries. Just by <br>
+              logging in using your <br> 
+              Mobile Number
+            </strong></h3>
+          </div>
+          <br>
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center">
+            <img [src]="fullImagePath" alt="Vegetable" class="circular-image">
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m8" id="login-form-div">
+        <div class="login-header">
+          <h1>Login</h1>
+        </div>
+        <div>
+          <form class="login-form" (submit)="enterMobile($event)">
+            <strong>Mobile Number</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field class="mat-form">
+              <span matPrefix>+91 &nbsp;</span>
+              <input type="tel" matInput placeholder="Mobile Number" id="mobile_number">
+              <mat-icon matSuffix>mode_edit</mat-icon>
+            </mat-form-field>
+            <br>
+            <button mat-raised-button color="primary" id="right-button" type="submit">Get OTP</button>
+          </form> 
+        </div>          
+      </div>
+    </div>
+  </div>
+</div>
+  

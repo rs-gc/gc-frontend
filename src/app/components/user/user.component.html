@@ -22,11 +22,11 @@
           <h1>Login</h1>
         </div>
         <div>
-          <form class="login-form" (submit)="enterMobile($event)">
+          <form class="login-form" (submit)="enterMobile()">
             <strong>Mobile Number</strong>&nbsp;&nbsp;&nbsp;&nbsp;
             <mat-form-field class="mat-form">
               <span matPrefix>+91 &nbsp;</span>
-              <input type="tel" matInput placeholder="Mobile Number" id="mobile_number">
+              <input type="tel" matInput placeholder="Mobile Number" id="mobile_number" [(ngModel)]="telephone">
               <mat-icon matSuffix>mode_edit</mat-icon>
             </mat-form-field>
             <br>

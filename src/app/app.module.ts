@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { GcNavComponent } from './gc-nav/gc-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule, ObservableMedia } from '@angular/flex-layout';
 import {
@@ -20,19 +19,21 @@ import {
 import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule, HTTP_INTERCEPTORS } from  '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { VegetableComponent } from './vegetable/vegetable.component';
-import { FruitComponent } from './fruit/fruit.component';
-import { OtherComponent } from './other/other.component';
-import { ItemsComponent } from './items/items.component';
-import { ItemComponent } from './item/item.component';
-import { CartComponent } from './cart/cart.component';
-import { UserComponent } from './user/user.component';
-import { OtpComponent } from './otp/otp.component';
-import { AuthGuard } from './auth.guard';
-import { TokenInterceptorService } from './token-interceptor.service'
-import { APIService } from './api.service'
+import { VegetableComponent } from './components/vegetable/vegetable.component';
+import { FruitComponent } from './components/fruit/fruit.component';
+import { OtherComponent } from './components/other/other.component';
+import { ItemsComponent } from './components/items/items.component';
+import { ItemComponent } from './components/item/item.component';
+import { CartComponent } from './components/cart/cart.component';
+import { UserComponent } from './components/user/user.component';
+import { OtpComponent } from './components/otp/otp.component';
+import { AuthGuard } from './guards/auth.guard';
+import { TokenInterceptor } from './interceptors/token-interceptor';
+import { APIService } from './services/api.service';
+import { GcNavComponent } from './components/gc-nav/gc-nav.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -63,13 +64,19 @@ import { APIService } from './api.service'
     MatIconModule,
     MatInputModule,
     MatListModule,
-    MatStepperModule
+    MatStepperModule,
+    FormsModule
   ],
-  providers: [APIService, CookieService, AuthGuard, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
-    multi: true
-  }],
+  providers: [
+    APIService,
+    CookieService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

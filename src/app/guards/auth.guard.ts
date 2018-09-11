@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { APIService } from './api.service';
+import { APIService } from 'src/app/services/api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +11,10 @@ export class AuthGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.apiService.isLoggedIn) {
-      return true
-    }
-    else {
-      this.router.navigate(['user/mobile'])
-      return false
+      return true;
+    } else {
+      this.router.navigate(['user/mobile']);
+      return false;
     }
   }
 }

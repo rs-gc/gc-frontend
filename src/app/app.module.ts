@@ -34,6 +34,7 @@ import { TokenInterceptor } from './interceptors/token-interceptor';
 import { APIService } from './services/api.service';
 import { GcNavComponent } from './components/gc-nav/gc-nav.component';
 import { FormsModule } from '@angular/forms';
+import { AddressComponent } from './components/address/address.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { FormsModule } from '@angular/forms';
     CartComponent,
     UserComponent,
     OtpComponent,
+    AddressComponent,
   ],
   imports: [
     AppRoutingModule,

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { APIService } from '../../services/api.service';
+import { GetfromcartService } from '../../services/getfromcart/getfromcart.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,25 +9,15 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cartItems: string;
+  private cartItems: Array<object> = [];
 
-  constructor(private cookieService: CookieService) { }
+  constructor(private cookieService: CookieService, private getFromCartService: GetfromcartService) { }
 
   ngOnInit() {
-    // TODO check if the user is logged in,
-    // If yes call the API for cart data.
-    let token = JSON.parse(localStorage.getItem('token'));
+    this.getCartItems();
+  }
 
-    if (token) {
-      // Call API
-      if (token) {
-        // check if the token is valid
-        token = ''
-      }
-      else {
-        // Check if the token is invalid.
-        token = ''
-      }
-    }
+  getCartItems() {
+    this.getFromCartService.getFromCart();
   }
 }

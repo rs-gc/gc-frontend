@@ -41,4 +41,17 @@ export class APIService {
   getToken() {
     return localStorage.getItem('token');
   }
+
+  getCartItems() {
+    return this.httpClient.get(`${environment.API_URL}/cart/items/`)
+  }
+
+  addCartItems(item_list) {
+    return this.httpClient.get(`${environment.API_URL}/cart/add/items/`)
+  }
+
+  getAddresses() {
+    return this.httpClient.get(`${environment.API_URL}/addresses/get/`)
+  }
+
 }

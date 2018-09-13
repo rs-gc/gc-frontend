@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 import { APIService } from 'src/app/services/api.service';
+import { AddtocartService } from '../../services/addtocart/addtocart.service'
 
 @Component({
   selector: 'app-items',
@@ -9,9 +9,15 @@ import { APIService } from 'src/app/services/api.service';
 })
 export class ItemsComponent implements OnInit {
 
+  quantity: any;
   private items: Array<object> = [];
   private cartItems: Object;
-  constructor(private apiService: APIService) { }
+
+
+  constructor(
+    private apiService: APIService,
+    private addToCartService: AddtocartService
+  ) { }
 
   ngOnInit() {
     this.getItems();
@@ -24,9 +30,16 @@ export class ItemsComponent implements OnInit {
     });
   }
 
-  public addToCart(item_uuid) {
-    let cookie = '';
-
+  public addToCart(this, item_uuid) {
+    console.log(item_uuid, this.real_quantity)
+    this.addToCartService.addToCart(
+      [
+        {
+          'item_uuid': item_uuid,
+          'quantity': this.real_quantity
+        }
+      ]
+    )
   }
 
 }

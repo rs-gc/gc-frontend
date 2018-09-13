@@ -1,5 +1,5 @@
 <div class="row">
-  <div *ngFor="let item of items;">
+  <div *ngFor="let item of items; let i = index">
     <div class="col s12 m3">
       <div class="inner">
         <mat-card class="example-card">
@@ -12,7 +12,8 @@
             <button mat-raised-button color="primary" id="price-button">&#x20B9; {{ item.customer_price }}/{{ item.quantity}}</button>
             <br><br>
             <mat-form-field class="example-full-width">
-              <input matInput #postalCode maxlength="2" placeholder="Quantity" value="1">
+                <button class="btn btn-success btn-xs plus" (click)="add(item.item_uuid)"><i class="glyphicon glyphicon-plus"></i></button>
+              <input matInput maxlength="2" placeholder="Quantity" value="1" id="quantity" [(ngModel)]="real_quantity" [ngModelOptions]="{standalone: true}">
               <mat-hint align="end">Quantity</mat-hint>
             </mat-form-field>
           </mat-card-content>
